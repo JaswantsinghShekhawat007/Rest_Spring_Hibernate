@@ -1,0 +1,7 @@
+create database restfourintern;
+
+use restfourintern;
+
+create table account(accno int primary key,accnm varchar(50) not null,acctype varchar(50) not null, balance float check(balance>=0.0));
+
+create table transactions(fromacno int,foreign key(fromacno) references account(accno),toacno int,foreign key(toacno) references account(accno),amount float not null,transdt date not null);
